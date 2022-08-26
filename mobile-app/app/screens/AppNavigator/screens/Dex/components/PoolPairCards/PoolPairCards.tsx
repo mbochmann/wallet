@@ -251,7 +251,8 @@ const PoolCard = ({
       style={tailwind('px-5 py-4 mb-2 rounded-lg-v2 mx-5')}
       dark={tailwind('bg-mono-dark-v2-00')}
       light={tailwind('bg-mono-light-v2-00')}
-      testID={type === 'your' ? 'pool_pair_row_your' : 'pool_pair_row'}
+      // testID={type === 'your' ? 'your_pool_pair_row' : 'pool_pair_row'}
+      testID={type === 'your' ? `your_${symbolA}-${symbolB}_pool_pair_row` : `${symbolA}-${symbolB}_pool_pair_row`}
       onPress={() => onPress(item.data.id)}
     >
       {type === 'available'
@@ -400,7 +401,7 @@ function YourPoolPair (props: YourPoolPairProps): JSX.Element {
         <DexAddRemoveLiquidityButton
           onAdd={props.onAdd}
           onRemove={props.onRemove}
-          pairToken={`${props.symbolA}-${props.symbolB}`}
+          pairTokenSymbol={`${props.symbolA}-${props.symbolB}`}
         />
       </View>
       <View style={tailwind('flex flex-row justify-between mt-3')}>
@@ -408,6 +409,7 @@ function YourPoolPair (props: YourPoolPairProps): JSX.Element {
           walletTokenPrice={props.walletTokenPrice}
           walletTokenAmount={props.walletTokenAmount}
           tokenID={props.walletToken.id}
+          pairTokenSymbol={`${props.symbolA}-${props.symbolB}`}
         />
         {props.poolPair?.apr?.total !== undefined && props.poolPair?.apr?.total !== null && (
           <APRSection

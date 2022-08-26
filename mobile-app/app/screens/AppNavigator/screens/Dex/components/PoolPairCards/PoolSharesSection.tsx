@@ -8,6 +8,7 @@ interface PoolSharesSectionProps {
   walletTokenPrice: BigNumber
   walletTokenAmount: BigNumber
   tokenID: string
+  pairTokenSymbol: string
 }
 export function PoolSharesSection (props: PoolSharesSectionProps): JSX.Element {
   return (
@@ -16,7 +17,7 @@ export function PoolSharesSection (props: PoolSharesSectionProps): JSX.Element {
         decimalScale={8}
         displayType='text'
         renderText={(textValue) => (
-          <ThemedTextV2 style={tailwind('text-sm font-semibold-v2')} testID={`pool_share_amount_${props.tokenID}`}>
+          <ThemedTextV2 style={tailwind('text-sm font-semibold-v2')} testID={`${props.pairTokenSymbol}_pool_share_amount`}>
             {textValue}
           </ThemedTextV2>
         )}
@@ -31,7 +32,7 @@ export function PoolSharesSection (props: PoolSharesSectionProps): JSX.Element {
             light={tailwind('text-mono-light-v2-700')}
             dark={tailwind('text-mono-dark-v2-700')}
             style={tailwind('text-sm font-normal-v2')}
-            testID={`pool_share_value_${props.tokenID}`}
+            testID={`${props.pairTokenSymbol}_pool_share_value`}
           >
             {textValue}
           </ThemedTextV2>

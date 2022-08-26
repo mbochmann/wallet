@@ -14,11 +14,10 @@ function createAddLiquidityToWallet (): void {
   cy.getByTestID('bottom_tab_dex').click().wait(1000)
   cy.getByTestID('dex_tabs_YOUR_POOL_PAIRS').click().wait(1000)
   cy.getByTestID('your_liquidity_tab').wait(2000)
-    .getByTestID('pool_pair_row_your').should('have.length', 1)
+  cy.getByTestID(`your_${tokensPair}_pool_pair_row`).should('exist')
 
   cy.getByTestID('your_liquidity_tab')
-    .wait(2000).getByTestID('pool_pair_row_your').first()
-    .invoke('text').should(text => expect(text).to.contains('10.00000000'))
+    .wait(2000).getByTestID(`your_${tokensPair}_pool_pair_row`).invoke('text').should(text => expect(text).to.contains('10.00000000'))
 
   cy.getByTestID(`pool_pair_remove_${tokensPair}`).click().wait(1000)
   cy.getByTestID('remove_liquidity_calculation_summary').should('not.exist')

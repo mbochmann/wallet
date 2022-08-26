@@ -33,10 +33,10 @@ interface DexAddRemoveLiquidityButtonProps {
   style?: StyleProp<ViewStyle>
   onAdd: () => void
   onRemove: () => void
-  pairToken: string
+  pairTokenSymbol: string
 }
 
-export function DexAddRemoveLiquidityButton ({ style, onAdd, onRemove, pairToken }: DexAddRemoveLiquidityButtonProps): JSX.Element {
+export function DexAddRemoveLiquidityButton ({ style, onAdd, onRemove, pairTokenSymbol }: DexAddRemoveLiquidityButtonProps): JSX.Element {
   return (
     <ThemedViewV2
       style={[tailwind('rounded-2xl-v2 py-2 px-3 flex flex-row items-center'), style]}
@@ -47,7 +47,7 @@ export function DexAddRemoveLiquidityButton ({ style, onAdd, onRemove, pairToken
       <ThemedTouchableOpacityV2
         onPress={onRemove}
         style={tailwind('border-r-0.5 pr-2')}
-        testID={`pool_pair_remove_${pairToken}`}
+        testID={`pool_pair_remove_${pairTokenSymbol}`}
       >
         <ThemedIcon
           iconType='Feather'
@@ -60,7 +60,7 @@ export function DexAddRemoveLiquidityButton ({ style, onAdd, onRemove, pairToken
       <ThemedTouchableOpacityV2
         onPress={onAdd}
         style={tailwind('pl-2')}
-        testID={`pool_pair_add_${pairToken}`}
+        testID={`pool_pair_add_${pairTokenSymbol}`}
       >
         <ThemedIcon
           iconType='Feather'
