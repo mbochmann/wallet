@@ -40,8 +40,14 @@ npm-debug.*
 *.key
 *.mobileprovision
 *.orig.*
-web-build/
+
+
+web-build/*
+!web-build/manifest.json
+!web-build/popup.html
+!web-build/popup.js
 
 # macOS
 .DS_Store
-missing_translations.json
+
+*/.expo/*
