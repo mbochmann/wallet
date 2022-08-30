@@ -22,8 +22,8 @@ export function Main (): JSX.Element {
 
   return (
     <SafeAreaProvider>
-      <View style={tailwind('flex-row flex-1 justify-center items-center bg-black')}>
-        <View style={styles.phone}>
+      <View style={tailwind('flex-row flex-1 justify-center items-center bg-black flex-shrink-0')}>
+        <View style={[styles.phone,tailwind('flex-grow-0')]}>
           <RootNavigator />
         </View>
 
@@ -44,7 +44,7 @@ export function Main (): JSX.Element {
  */
 const styles = StyleSheet.create({
   phone: {
-    height: 667,
-    width: 375
+    height: "100%",
+    width: "100%"
   }
 })
