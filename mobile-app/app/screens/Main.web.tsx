@@ -45,6 +45,8 @@ export function Main (): JSX.Element {
 const styles = StyleSheet.create({
   phone: {
     height: "100%",
-    width: "100%"
+    width: "100%",
+    minWidth: 375,
+    minHeight: 600
   }
 })
